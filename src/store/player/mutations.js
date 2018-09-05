@@ -4,6 +4,6 @@ export default {
     state.duration = time
   },
   [Types.GET_CURRENTTIME] (state, time) {
-    state.currenTime = time
+    state.currentTime = time
   }
 }

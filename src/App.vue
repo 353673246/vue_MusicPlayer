@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-// import './style/comm.scss'
+import './style/comm.scss'
 export default {
 
 }

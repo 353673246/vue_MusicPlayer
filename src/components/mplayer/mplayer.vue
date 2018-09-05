@@ -31,7 +31,7 @@ export default {
         this.audio.play()
       }
     }
-    this.audio.volume = this.volume
+    this.audio.volume = this.volume / 100
   }
 }
 </script>

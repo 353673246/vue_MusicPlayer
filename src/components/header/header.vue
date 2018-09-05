@@ -1,11 +1,18 @@
 <template>
   <div class="header">
-    <router-link to="/">
-      <img src="../../images/music.png" alt="">
-    </router-link>
-    <h1>恋歌音乐</h1>
+    <span>{{currentItem.title}}</span>
+    <p>{{currentItem.artist}}</p>
   </div>
 </template>
+<script>
+import {mapGetters} from 'vuex'
+export default {
+  computed: {
+    ...mapGetters('list', ['currentItem'])
+  }
+}
+</script>
+
 <style lang="scss">
 @import "header.scss";
 </style>
