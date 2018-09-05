@@ -1,0 +1,2 @@
+export const GET_DURATION = 'GET_DURATION'
+export const GET_CURRENTTIME = 'GET_CURRENTTIME'
