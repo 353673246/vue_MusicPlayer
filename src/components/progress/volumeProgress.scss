@@ -1,0 +1,14 @@
+.components-volume-progress{
+  display: inline-block;
+  // margin-top: 30px;
+  margin-left: 3vw;
+  width: 20%;
+  height: 3px;
+  background: #ddd;
+  // cursor: pointer;
+  .progress-volume{
+    width: 50%;
+    height: 3px;
+    background: rgb(136, 65, 65)
+  }
+}

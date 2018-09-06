@@ -1,13 +1,13 @@
 .components-progress{
+  display: inline-block;
   margin-top: 30px;
-  width:100%;
+  width: 80%;
   height: 3px;
   background: #ddd;
-  cursor: pointer;
+  // cursor: pointer;
   .progress{
-    width: 50%;
+    width: 30%;
     height: 3px;
-    background: #2f9842
-
+    background: red
   }
 }

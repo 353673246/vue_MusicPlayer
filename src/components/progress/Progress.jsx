@@ -12,13 +12,14 @@ export default {
       this.$emit('changeProgress', progress)
     }
   },
-
   render () {
     return (
-      <div class="components-progress" onClick={this.changeProgress} ref="progressbar" >
+      <div class="components-progress" onClick={this.changeProgress} ref = "progressbar">
+
         <div class="progress"
           style={{width: `${this.value}%`}}>
         </div>
+
       </div>
     )
   }

@@ -13,7 +13,7 @@ export default {
     audio () {
       return this.$refs.audio
     },
-    ...mapState('player', ['pasued', 'volume']),
+    ...mapState('player', ['pasued', 'volume', 'currentTime', 'changeTime']),
     ...mapGetters('list', ['currentItem'])
   },
   methods: {
@@ -23,6 +23,14 @@ export default {
     },
     timeupdate () {
       this.GET_CURRENTTIME(this.audio.currentTime)
+    }
+  },
+  watch: {
+    changeTime (val, oldVal) {
+      this.audio.currentTime = val
+      // if (Math.abs(val - oldVal) > 1) {
+      //   this.audio.currentTime = val
+      // }
     }
   },
   mounted () {
