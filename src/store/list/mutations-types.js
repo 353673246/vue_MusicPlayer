@@ -1,0 +1,2 @@
+export const CHANGE_MUSIC_INDEX = 'CHANGE_MUSIC_INDEX'
+export const PREV_NEXT = 'PREV_NEXT'

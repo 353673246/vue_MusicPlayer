@@ -1,7 +1,7 @@
 export default {
   currentTime: 0,
   duration: 0,
-  volume: 80,
-  pasued: false,
+  volume: 30,
+  paused: false,
   changeTime: 0
 }

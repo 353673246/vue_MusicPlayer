@@ -13,7 +13,7 @@ export default {
     audio () {
       return this.$refs.audio
     },
-    ...mapState('player', ['pasued', 'volume', 'currentTime', 'changeTime']),
+    ...mapState('player', ['paused', 'volume', 'currentTime', 'changeTime']),
     ...mapGetters('list', ['currentItem'])
   },
   methods: {
@@ -31,7 +31,19 @@ export default {
       // if (Math.abs(val - oldVal) > 1) {
       //   this.audio.currentTime = val
       // }
+    },
+    paused (val, oldVal) {
+      // this.audio.pasued = !this.audio.pasued
+      if (val) {
+        this.audio.pause()
+      } else {
+        this.audio.play()
+      }
+    },
+    volume (val, oldVal) {
+      this.audio.volume = val / 100
     }
+
   },
   mounted () {
     this.audio.oncanplay = () => {

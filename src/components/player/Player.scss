@@ -19,8 +19,14 @@
     animation: rotate 10s;
     animation-timing-function:linear;
     animation-iteration-count : infinite;
+    &.pause{
+      animation-play-state: paused;
+    }
+    &.play{
+      animation-play-state: running;
+    }
   }
-  .control{
+  .control_wrap{
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -35,25 +41,72 @@
     // margin-top: 20vw;
 
 
-    span{
-      display: block;
-      flex: 0.2;
-      // padding-top: 15vw;
-      img{
-        // margin-right: 1vw;
-        margin-left: 5vw;
-        width: 10vw;
-    }
-    }
-    .volume{
-      flex: 0.1;
-      margin-left: 2vw;
-      img{
-        width: 5vw
+
+    .control{
+      position: relative;
+      display: flex;
+      justify-content:center;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0px 10px;
+
+      .playOrder{
+        position: absolute;
+        left: 85%;
+        top: 25%;
+        width: 8vw;
+        height: 8vw;
+        background: url(../../images/cycle.png) no-repeat;
+        background-size: 100%;
+        background-position: center center;
+
+
+      }
+      .control-left , .control-center ,.control-right{
+        width: 20%;
+        height: 14vw;
+      }
+
+      .control-left{
+        background: url(../../images/previous.png) no-repeat;
+        background-size: 60%;
+        background-position: center center;
+      }
+      .play{
+        background: url(../../images/play.png) no-repeat;
+      }
+      .pause{
+        background: url(../../images/Pause.png) no-repeat;
+      }
+      .control-center{
+        background-size: 60%;
+        background-position: center center;
+      }
+      .control-right{
+        background: url(../../images/next.png) no-repeat;
+        background-size: 60%;
+        background-position: center center;
       }
     }
 
-  }
+    }
+    .volume{
+      display: flex;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 5vw;
+      margin-top: 5vw;
+      .volumeBtn{
+        width: 7vw;
+        height: 7vw;
+        background: url(../../images/volume.png) no-repeat;
+        background-size: 60%;
+        background-position: center center;
+      }
+
+    }
+    }
+
   .timer{
     overflow: hidden;
     width: 100%;
@@ -66,7 +119,6 @@
       font-weight: bold;
     }
   }
-}
 @keyframes rotate{
   from {transform: rotate(0deg)}
   to {transform: rotate(360deg)}

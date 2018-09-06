@@ -1,30 +1,30 @@
 <template>
   <div class="player">
-    <div class="cover">
-      <img :src="currentItem.cover" alt="" style="width:60vw;height:60vw">
-    </div>
+   <router-link to="/lrc">
+      <div class="cover" :class="paused? 'pause':'play'">
+        <img :src="currentItem.cover" alt="" style="width:60vw;height:60vw">
+      </div>
+   </router-link>
     <div class="timer">
       <span>
-        {{leftTime}}
+        -{{leftTime}}
       </span>
       <Progress :value="currentPercentAbsoulte" @changeProgress = "changeProgress"></Progress>
     </div>
-    <div class="control">
-      <span>
-        <img src="../../images/previous.png" alt="">
-      </span>
-      <span>
-        <img src="../../images/play.png" alt="">
-      </span>
-      <span>
-        <img src="../../images/next.png" alt="">
-      </span>
-      <span class="volume">
-        <img src="../../images/volume.png" alt="">
-      </span>
+    <div class="volume">
+      <div class="volumeBtn"></div>
       <volumeProgress :value="volume" @changeProgressVolume = "changeVolume"></volumeProgress>
     </div>
-  </div>
+
+    <div class="control_wrap">
+      <div class="control">
+        <div class = "control-left" @click = "PREV_NEXT('prev')"></div>
+        <div class = "control-center" @click="PLAY_PAUSE" :class="paused?'play':'pause'"></div>
+        <div class = "control-right" @click = "PREV_NEXT('next')"></div>
+        <div class="playOrder"></div>
+      </div>
+      </div>
+    </div>
 </template>
 <script>
 import {mapState, mapGetters, mapMutations} from 'vuex'
@@ -37,12 +37,13 @@ export default {
     volumeProgress
   },
   computed: {
-    ...mapState('player', ['volume']),
+    ...mapState('player', ['volume', 'paused']),
     ...mapGetters('list', ['currentItem']),
     ...mapGetters('player', ['leftTime', 'currentPercentAbsoulte'])
   },
   methods: {
-    ...mapMutations('player', ['CHANGE_VOLUME', 'CHANGE_PROGRESS']),
+    ...mapMutations('player', ['CHANGE_VOLUME', 'CHANGE_PROGRESS', 'PLAY_PAUSE']),
+    ...mapMutations('list', ['PREV_NEXT']),
     changeVolume (volume) {
       // console.log('changeVolume', volume)
       this.CHANGE_VOLUME(volume * 100)

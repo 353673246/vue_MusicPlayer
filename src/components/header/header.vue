@@ -1,8 +1,10 @@
 <template>
   <div class="header">
-    <span>{{currentItem.title}}</span>
+    <span><router-link to="/">{{currentItem.title}}</router-link></span>
     <p>{{currentItem.artist}}</p>
+    <router-link to="/list"><div class="list"></div></router-link>
   </div>
+
 </template>
 <script>
 import {mapGetters} from 'vuex'
