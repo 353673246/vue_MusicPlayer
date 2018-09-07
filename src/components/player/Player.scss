@@ -56,11 +56,21 @@
         top: 25%;
         width: 8vw;
         height: 8vw;
-        background: url(../../images/cycle.png) no-repeat;
-        background-size: 100%;
-        background-position: center center;
-
-
+        &.cycle{
+          background: url(../../images/cycle.png) no-repeat;
+          background-size: 100%;
+          background-position: center center;
+        }
+        &.once{
+          background: url(../../images/once.png) no-repeat;
+          background-size: 100%;
+          background-position: center center;
+        }
+        &.random{
+          background: url(../../images/random.png) no-repeat;
+          background-size: 100%;
+          background-position: center center;
+        }
       }
       .control-left , .control-center ,.control-right{
         width: 20%;

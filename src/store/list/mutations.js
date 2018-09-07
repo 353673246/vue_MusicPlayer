@@ -1,4 +1,4 @@
-import {CHANGE_MUSIC_INDEX, PREV_NEXT} from './mutations-types'
+import {CHANGE_MUSIC_INDEX, PREV_NEXT, CHANGE_REPEATTYPE} from './mutations-types'
 import player from '../player/state'
 export default {
   [CHANGE_MUSIC_INDEX] (state, musicItem) {
@@ -20,5 +20,15 @@ export default {
       currentIndex = newIndex
     }
     state.currentIndex = currentIndex
+  },
+  [CHANGE_REPEATTYPE] (state, repeatType) {
+    if (state.repeatType === 'cycle') {
+      state.repeatType = 'random'
+    } else if (state.repeatType === 'random') {
+      state.repeatType = 'once'
+    } else if (state.repeatType === 'once') {
+      state.repeatType = 'cycle'
+    }
+    console.log(state.repeatType)
   }
 }

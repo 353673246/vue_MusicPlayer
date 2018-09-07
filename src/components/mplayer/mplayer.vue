@@ -34,6 +34,9 @@ export default {
     },
     paused (val, oldVal) {
       // this.audio.pasued = !this.audio.pasued
+      if (this.audio.currentTime === this.audio.duration) {
+        console.log('end')
+      }
       if (val) {
         this.audio.pause()
       } else {

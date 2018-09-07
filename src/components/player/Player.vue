@@ -18,10 +18,10 @@
 
     <div class="control_wrap">
       <div class="control">
-        <div class = "control-left" @click = "PREV_NEXT('prev')"></div>
+        <div class = "control-left" @click="PREV_NEXT('prev')"></div>
         <div class = "control-center" @click="PLAY_PAUSE" :class="paused?'play':'pause'"></div>
-        <div class = "control-right" @click = "PREV_NEXT('next')"></div>
-        <div class="playOrder"></div>
+        <div class = "control-right" @click="PREV_NEXT('next')"></div>
+        <div class="playOrder" @click="CHANGE_REPEATTYPE" :class="this.repeatType" ></div>
       </div>
       </div>
     </div>
@@ -37,13 +37,24 @@ export default {
     volumeProgress
   },
   computed: {
+    repeatTypeStr () {
+      switch (this.repeatType) {
+        case 'cycle':
+          return '顺序播放'
+        case 'once':
+          return '单次循环'
+        case 'random':
+          return '随机播放'
+      }
+    },
     ...mapState('player', ['volume', 'paused']),
     ...mapGetters('list', ['currentItem']),
-    ...mapGetters('player', ['leftTime', 'currentPercentAbsoulte'])
+    ...mapGetters('player', ['leftTime', 'currentPercentAbsoulte']),
+    ...mapState('list', ['repeatType'])
   },
   methods: {
     ...mapMutations('player', ['CHANGE_VOLUME', 'CHANGE_PROGRESS', 'PLAY_PAUSE']),
-    ...mapMutations('list', ['PREV_NEXT']),
+    ...mapMutations('list', ['PREV_NEXT', 'CHANGE_REPEATTYPE']),
     changeVolume (volume) {
       // console.log('changeVolume', volume)
       this.CHANGE_VOLUME(volume * 100)
