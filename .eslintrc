@@ -16,5 +16,9 @@
     "ecmaFeatures": {
       "jsx": true
     }
+  },
+  "rules": {
+    "no-array-constructor": 2,
+    "no-useless-escape" : 2
   }
 }
