@@ -21,9 +21,11 @@
     text-indent: 5vw;
   }
   .list{
-    position: absolute;
-    left: 80%;
-    top: 3%;
+    float:right;
+    // position: absolute;
+    // left: 80%;
+    // top: 3%;
+    margin-top: -12vw;
     width: 10vw;
     height: 10vw;
     background: url(../../images/list.png) no-repeat;
